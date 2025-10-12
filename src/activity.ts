@@ -362,7 +362,7 @@ export const getPresenceButtons = async (
             ? "Active"
             : "Inactive";
     if ((!button1Enabled && !button2Enabled) || !state) return [];
-    let isGit = !isGitExcluded && Boolean(dataClass.gitRemoteUrl);
+    let isGit = !isGitExcluded && !!dataClass.gitRemoteUrl;
     logInfo("[activity.ts] repo button1#gitRemoteUrl:", dataClass.gitRemoteUrl, "isGit", isGit);
     let button1 = buttonValidation(await createButton(replaceAllText, state, isGit, "Button1"), "Button1");
     let button2 = buttonValidation(await createButton(replaceAllText, state, isGit, "Button2"), "Button2");
