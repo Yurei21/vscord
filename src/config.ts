@@ -1,4 +1,3 @@
-
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { type ConfigurationTarget, type WorkspaceConfiguration, workspace } from "vscode";
 import { type PROBLEM_LEVEL } from "./activity";
