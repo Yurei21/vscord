@@ -47,8 +47,12 @@ jobs:
         run: |
           pnpm run package
 
+      - name: Get Version
+        run: |
+          echo "VERSION=$(node -p "require('./package.json').version")" >> $GITHUB_ENV
+
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: ubuntu-latest
+          name: vscord-${{ env.VERSION }}-pr${{ github.event.number }}.vsix
           path: vscord-*.vsix
