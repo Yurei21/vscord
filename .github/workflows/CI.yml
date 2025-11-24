@@ -35,8 +35,16 @@ jobs:
         run: |
           echo "VERSION=$(node -p "require('./package.json').version")" >> $GITHUB_ENV
 
+      - name: Compute PR suffix
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            echo "PR_SUFFIX=-pr${{ github.event.number }}" >> $GITHUB_ENV
+          else
+            echo "PR_SUFFIX=" >> $GITHUB_ENV
+          fi
+
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: vscord-${{ env.VERSION }}-pr${{ github.event.number }}.vsix
+          name: vscord-${{ env.VERSION }}${{ env.PR_SUFFIX }}.vsix
           path: vscord-*.vsix
