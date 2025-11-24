@@ -4,14 +4,13 @@ node_modules/
 .vscode/
 src/
 
-pnpm-workspace.yaml
 ADDING_LANGUAGE.md
+package-lock.json
 .prettierignore
-pnpm-lock.yaml
 .gitattributes
-tsup.config.ts
 tsconfig.json
 .vscodeignore
 .prettierrc
 .gitignore
+esbuild.js
 suckmyass
